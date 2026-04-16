@@ -65,9 +65,9 @@ pipeline {
                 withSonarQubeEnv('SonarQube') {
                     dir('Backend') {
                         bat """
-                            dotnet-sonarscanner begin /k:"RestaurantApp" /d:sonar.host.url=%SONAR_HOST_URL% /d:sonar.cs.opencover.reportsPaths="../Backend.Tests/TestResults/**/coverage.opencover.xml" /d:sonar.exclusions="**/Migrations/**,**/obj/**,**/bin/**"
+                            "C:\\Users\\abhis\\.dotnet\\tools\\dotnet-sonarscanner.exe" begin /k:"RestaurantApp" /d:sonar.host.url=%SONAR_HOST_URL% /d:sonar.cs.opencover.reportsPaths="../Backend.Tests/TestResults/**/coverage.opencover.xml" /d:sonar.exclusions="**/Migrations/**,**/obj/**,**/bin/**"
                             dotnet build -c Release
-                            dotnet-sonarscanner end
+                            "C:\\Users\\abhis\\.dotnet\\tools\\dotnet-sonarscanner.exe" end
                         """
                     }
                 }
