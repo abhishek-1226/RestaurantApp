@@ -1,0 +1,37 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.vs/
+publish/
+TestResults/
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.sln.docstates
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+*.env
+appsettings.*.local.json
+
+# Docker
+docker-compose.override.yml
+
+# Coverage
+coverage/
+*.lcov
+
+# Dependency check reports
+dependency-check-report/
