@@ -103,8 +103,8 @@ pipeline {
                         echo '=== Building and Scanning Docker Images ==='
                         bat "docker build -t %DOCKER_IMAGE_BACKEND%:%BUILD_TAG% ./Backend"
                         bat "docker build -t %DOCKER_IMAGE_FRONTEND%:%BUILD_TAG% ./Frontend"
-                        bat "docker run --rm -v //./pipe/docker_engine://./pipe/docker_engine ghcr.io/aquasecurity/trivy:latest image --exit-code 0 --severity HIGH,CRITICAL --format table %DOCKER_IMAGE_BACKEND%:%BUILD_TAG%"
-                        bat "docker run --rm -v //./pipe/docker_engine://./pipe/docker_engine ghcr.io/aquasecurity/trivy:latest image --exit-code 0 --severity HIGH,CRITICAL --format table %DOCKER_IMAGE_FRONTEND%:%BUILD_TAG%"
+                        bat "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/aquasecurity/trivy:latest image --exit-code 0 --severity HIGH,CRITICAL --format table %DOCKER_IMAGE_BACKEND%:%BUILD_TAG%"
+                        bat "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/aquasecurity/trivy:latest image --exit-code 0 --severity HIGH,CRITICAL --format table %DOCKER_IMAGE_FRONTEND%:%BUILD_TAG%"
                     }
                 }
             }
