@@ -87,4 +87,11 @@ app.MapControllers();
 app.MapHealthChecks("/health");
 app.MapGet("/", () => "Welcome to Restaurant App API");
 
+// Automatically apply database migrations on startup
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<RestaurantApp.Data.AppDbContext>();
+    dbContext.Database.Migrate();
+}
+
 app.Run();
