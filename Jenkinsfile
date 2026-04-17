@@ -6,7 +6,7 @@ pipeline {
         DOCKER_IMAGE_BACKEND = 'restaurantapp-backend'
         DOCKER_IMAGE_FRONTEND = 'restaurantapp-frontend'
         BUILD_TAG = "${env.BUILD_NUMBER ?: 'latest'}"
-        SONAR_HOST_URL = 'http://host.docker.internal:9000'
+        SONAR_HOST_URL = 'http://localhost:9000'
     }
 
     stages {
