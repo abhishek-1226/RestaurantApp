@@ -92,6 +92,7 @@ namespace RestaurantApp.Services
             return user;
         }
 
+        //This method gets the user by their ID and returns the UserResponseDTO 
         public async Task<UserResponseDto?> GetUserById(int id)
         {
             var user = await _context.Users
@@ -103,6 +104,7 @@ namespace RestaurantApp.Services
             return MapToDto(user);
         }
 
+        //This method gets the user by their email and returns the UserResponseDTO 
         public async Task<UserModel?> GetUserByEmail(string email)
         {
             return await _context.Users
@@ -117,7 +119,7 @@ namespace RestaurantApp.Services
                 .Where(u => !u.IsDeleted)
                 .ToListAsync();
 
-            return users.Select(MapToDto).ToList();
+            return users.Select(MapToDto).ToList();//This is a helper function that purpose of which is to map the user to the UserResponseDTO
         }
 
         public async Task<bool> AssignRole(int userId, int roleId)
